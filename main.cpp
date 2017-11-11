@@ -56,7 +56,7 @@ int main(){
 					imprimirTablero(tablero);
 					cout<<endl;
 					do{
-						cout<<"iNGRESO POSICION INCORRECTA, ingrese posicion: "<<endl;
+						cout<<"ingrese posicion: "<<endl;
 						cin>>posicion;
 						primerX = posicion.substr(0,2);
 						primerY= posicion.substr(3,4);
@@ -65,22 +65,10 @@ int main(){
 						newx= primerY[0]-65;
 						newy= primerY[1]-49;
 					}while(salirTablero(tablero,posx,posy,newx,newy)==true);
-						movimientoMarine==false;
 					
 					turno=2;//cambio de turno
 				}
 				if (turno==2){
-					cout<<"turno de "<<player2<<endl;
-					imprimirTablero(tablero);
-					cout<<endl;
-					cout<<"ingrese posicion: "<<endl;
-					cin>>posicion;
-					primerX = posicion.substr(0,2);
-					primerY= posicion.substr(3,4);
-					posx= primerX[0]-65;
-					posy= primerX[1]-49;
-					newx= primerY[0]-65;
-					newy= primerY[1]-49;
 					do{
 						cout<<"iNGRESO POSICION INCORRECTA, ingrese posicion: "<<endl;
 						cin>>posicion;
@@ -103,7 +91,7 @@ int main(){
 }
 
 bool salirTablero(Pieza*** tablero,int posx ,int posy ,int newx ,int newy){
-	if (posx=0 && posx <8 && newx>0 && newy<9 ){
+	if (posx<0 || posx >9 || newx<0 || newy>9 ){
 		cout<<"Se salio del tablero";
 		return true;
 		
